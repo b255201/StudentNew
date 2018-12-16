@@ -1,0 +1,156 @@
+﻿@model StudentWeb.Models.ChildClass
+@{
+    Layout = "~/Views/Shared/lesson_LayoutCopy.cshtml";
+}
+<link href="~/Content/css/templatemo-style.css?20180901" rel="stylesheet" />
+<link href="~/Content/css/bootstrap.css?20180901" rel="stylesheet" />
+<style>
+
+    .img-card > img {
+        height: 600px;
+        width: 540px;
+    }
+
+    .imgst {
+        width: 100%;
+        height: 580px !important;
+    }
+   
+
+    .block {
+        width: 280px;
+        height: 280px;
+        padding: 10px;
+        margin: 10px;
+        display: inline-block;
+        line-height: 40px;
+        background-color: #eeffff;
+        box-shadow: 0px 0px 5px #888888;
+        vertical-align: top;
+        text-align: left;
+    }
+
+  
+ 
+
+
+
+    @@media (max-width: 992px) {
+        .imgst {
+            width: 100%;
+            height: 380px !important;
+        }
+
+        .img-card {
+            margin: 0 auto;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+
+
+    }
+</style>
+<div style="padding-bottom:20px;border-bottom:1px solid lightgray;padding-top:10px;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12" style="text-align:center">
+                <div class="fh5co-card-body col-lg-12 col-md-12 col-sm-12" style="padding-top:10px;text-align:left">
+                    <h3 style="color:#750112">【@Model.title】</h3>
+                    <p>
+                        @Model.Description
+                    </p>
+                </div>
+                @foreach (string img in ViewBag.img.Split(','))
+                {
+                    <div class="col-lg-6 col-md-6 col-sm-12" style="padding-top:10px;text-align:center">
+                        <img src="@Url.Action("GetImageFile","ChildLesson", new { fileName= img })" class="img-responsive  imgst">
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section id="sharfb" class="section-bg wow fadeInUp">
+    <div class="form-group">
+        <div class="col-sm-12">
+            <wb:share-button appkey="1NpS4Z" addition="number" type="button"></wb:share-button>
+            <br />
+            <div class="fb-like" data-href="http://www.learnschool.com.tw/ChildLesson/Detail/@Model.Id" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+            <div class="fb-comments" data-width="100%" data-href="http://www.learnschool.com.tw/ChildLesson/Detail/@Model.Id" data-numposts="5">
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="clear()"></div>
+
+
+
+
+<script>
+    $(function () {
+
+        $(".tit").text('@ViewBag.Course');
+    })
+    function ContactSend() {
+
+        if ($("#name").val().trim() == "") {
+            alert("請填寫姓名");
+            return false;
+        }
+
+        if ($("#email").val().trim() != "") {
+            var emailRule = /^\w+((-\w+)|(\.\w+))*\@@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/g;
+            if (emailRule.test($("#email").val()) == false) {
+                alert("信箱格式有誤,請檢查");
+                return false;
+            }
+        }
+
+        if ($("#Phone").val().trim() == "") {
+            if ($("#LocalPhone").val().trim() == "") {
+                alert("電話或手機請選擇一樣填寫");
+                return false;
+            }
+        }
+
+        if ($("#Phone").val().trim() != "") {
+            var Phone = $("#Phone").val().trim();
+            Phone = Phone.replace(/\s+/g, "").length;
+            if (Phone != "10") {
+                alert("手機請填寫10碼,請檢查");
+                return false;
+            }
+        }
+
+        if ($("#LocalPhone").val().trim() != "") {
+            var LocalPhone = $("#LocalPhone").val().trim();
+            LocalPhone = LocalPhone.replace(/\s+/g, "").length;
+            if (LocalPhone < "8") {
+                alert("電話至少8碼,請檢查");
+                return false;
+            }
+        }
+
+        $.ajax({
+            url: "/Liu/InsertContact",
+            type: "POST",
+            data: $("#ContactForm").serialize(),
+            success: function (data) {
+                if (data.Status == "0") {
+                    alert("\n訊息：送出成功，我們會盡快聯繫您！");
+
+                } else {
+                    var message = data.StatusDesc;
+                    alert(message);
+                }
+            },
+            error: function (err) {
+                alert(err.Status);
+            }
+        });
+    }
+</script>

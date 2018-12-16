@@ -1,0 +1,359 @@
+﻿
+<!DOCTYPE html>
+<html lang="en" xmlns:wb=“http://open.weibo.com/wb”>
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="~/Content/img/logo_LE.jpg">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="劉毅英文補習班" />
+    <meta name="keywords" content="劉毅補習班,國中保證班,高中保證班,升大學補習班,升高中補習班,落點分析,學測班,全科班,衝刺班,劉毅英文補習班,英文補習班,國中英文班,國中全科班,高中英文班,高中全科班,成人美語班,兒童美語班,指考複習班,TOEIC多益" />
+    <title>劉毅英文</title>
+    <link href="~/Content/css/mystyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/css/mystyle.css?1991" />
+    <link rel="stylesheet" href="~/Content/css/bootstrap.css?1991" />
+    <link rel="stylesheet" href="~/Content/css/book.css?1991" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/css/style.css?1991" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+    <link href="~/Content/css/modal.css?1991" rel="stylesheet" />
+    <link href="~/Content/css/NavBar.css?20180901" rel="stylesheet" />
+    <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+
+
+<body>
+    <style>
+        /*formmemo*/
+        .memotest {
+            display: none
+        }
+    </style>
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v3.2';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <header class="header container1">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand">劉毅英文</a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="~/Liu/Index" style="font-size:18px;color:white">首頁</a></li>
+                        <li class="dropdown">
+                            <a style="font-size:18px;" href="#" class="dropdown-toggle" data-toggle="dropdown">課程介紹 <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="~/ChildLesson/Index" style="font-size:18px;">兒童部</a></li>
+                                <li><a href="~/JuniorLesson/Index" style="font-size:18px;">國中部</a></li>
+                                <li><a href="~/HighLesson/Index" style="font-size:18px;">高中部</a></li>
+                                <li><a href="~/AdultLesson/Index" style="font-size:18px;">成人部</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a style="font-size:18px;" href="#" class="dropdown-toggle" data-toggle="dropdown">教材介紹 <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="~/Book/elementary_school" style="font-size:18px;">國小書籍</a></li>
+                                <li><a href="~/Book/junior_school" style="font-size:18px;">國中書籍</a></li>
+                                <li><a href="~/Book/High_school" style="font-size:18px;">高中書籍</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="~/Video/Media" style="font-size:18px;color:white">新聞報導</a></li>
+                        <li><a href="~/Video/Lesson" style="font-size:18px;color:white">上課實況</a></li>
+                        <li><a href="~/ScholarShip/Index" style="font-size:18px;color:white">學生獎學金</a></li>
+                        <li><a href="~/Impression/Index" style="font-size:18px;color:white">學生心得</a></li>
+                        <li><a href="http://www.learnbook.com.tw/" target="_blank" style="font-size:18px;color:white">學習出版社</a></li>
+
+
+                        @*<li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login <b class="caret"></b></a>
+            <ul id="login-dp" class="dropdown-menu">
+                <li>
+                    <div class="row">
+                        <div class="col-md-12">
+                            Auction Portal Login
+                            <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                                <div class="form-group">
+                                    <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="exampleInputPassword2">Password</label>
+                                    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+                                    <div class="help-block text-right"><a href="">Reset password ?</a></div>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="bottom text-center">
+                            New here ? <a href="#"><b>Join</b></a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </li>*@
+
+
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-collapse -->
+        </nav>
+
+
+
+    </header>
+    <div class="img-background">
+        <div class="slogan  titTop">
+            <!--高中課程-->
+        </div>
+        <div class="full-image">
+        </div>
+    </div>
+
+
+    <div class="container1   con">
+
+
+        <div class="overview-intro">
+
+
+            <div class="clear"></div>
+        </div>
+
+
+        <div class="col-md-12" style="background-color:#008888;">
+            <div class="tit"></div>
+        </div>
+        <div class="clear"></div>
+
+
+        @*<div class="article-list col-md-12 container1" style="padding: 20px;border-bottom:2px solid gray;">*@
+
+        <div class="col-md-12" style="background-color:whitesmoke;">
+            @RenderBody()
+        </div>
+
+
+        <!--**contact form***-->
+
+        <div>
+            <div class="col-md-12 contact-block" style="text-align:center;height:auto">
+
+
+                <div class="contactword">
+                    預約試聽
+
+                </div>
+
+                <div class="col-md-3"></div>
+
+                @using (Html.BeginForm("InsertContact", "LiuController", FormMethod.Post, new { @id = "ContactForm", @class = "form-horizontal col-sm-6 ", role = "form" }))
+                {
+                    <div class="form-group" style="text-align:left">
+
+                        <label style="margin-right:-15px;color:black" class="control-label col-sm-2" for="name">姓名:</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="name" placeholder="姓名(必填)" name="name">
+                        </div>
+                    </div>
+                    <div class="form-group" style="text-align:left">
+                        <label style="margin-right:-15px;color:black" class="control-label col-sm-2" for="Schoolname">學校:</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="Schoolname" placeholder="學校" name="Schoolname">
+                        </div>
+                    </div>
+                    <div class="form-group" style="text-align:left">
+                        <label style="margin-right:-15px;color:black" class="control-label col-sm-2" for="email">信箱:</label>
+                        <div class="col-sm-9">
+                            <input type="email" class="form-control" id="email" placeholder="信箱" name="email">
+                        </div>
+                    </div>
+                    <div class="form-group" style="text-align:left">
+                        <label style="margin-right:-15px;color:black" class="control-label col-sm-2" for="Phone">手機:</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="Phone" placeholder="手機(電話或手機選一)" onkeypress='if (event.keyCode!=46 && (event.keyCode < 48 || event.keyCode > 57)) event.returnValue=false' name="Phone">
+                        </div>
+                    </div>
+                    <div class="form-group" style="text-align:left">
+                        <label style="margin-right:-15px;color:black" class="control-label col-sm-2" for="LocalPhone">電話:</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="LocalPhone" placeholder="電話(電話或手機選一)" onkeypress='if (event.keyCode!=46 && (event.keyCode < 48 || event.keyCode > 57)) event.returnValue=false' name="LocalPhone">
+                        </div>
+                    </div>
+                    <div class="form-group" style="text-align:left">
+                        <label style="margin-right:-15px;color:black" class="control-label col-sm-2" for="Course">課程:</label>
+                        <div class="col-sm-9">
+                            <select class="" id="Course" name="Course" onchange="Shomemo(this.value)">
+                                <option value="小六升國七精熟銜接班">小六升國七精熟銜接班</option>
+                                <option value="國七升國八超前進度班">國七升國八超前進度班</option>
+                                <option value="會考保證班">會考保證班</option>
+                                <option value="高一英文課程">高一英文課程</option>
+                                <option value="高一數學課程">高一數學課程</option>
+                                <option value="高二三英文課程">高二三英文課程</option>
+                                <option value="高二數學課程">高二數學課程</option>
+                                <option value="學測保證班">學測保證班</option>
+                                <option value="TOEIC新制多益課程">TOEIC新制多益課程</option>
+                                <option value="GEPT全民英檢中級複試班">GEPT全民英檢中級複試班</option>
+                                <option value="高效英文會話">高效英文會話</option>
+                                <option value="軍公教人員免費全民英檢班">軍公教人員免費全民英檢班</option>
+                                <option value="中低收入戶及原或新住民學生，免費英語課程">中低收入戶及原或新住民學生，免費英語課程</option>
+                                <option value="其他">其他</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group memotest" style="text-align:left;" id="memoform">
+
+                        <label style="margin-right:-15px;color:black" class="control-label col-sm-2" for="Memo">備註:</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="Memo" placeholder="備註" name="Memo">
+                        </div>
+                    </div>
+                    <div class="form-group" style="text-align:left;">
+                        <label style="margin-right:-15px;" class="control-label col-sm-2"></label>
+                        <div class="col-sm-9">
+                            <div style="text-align:right">
+                                <a class="type-dark btn-ghost" onclick="ContactSend()" style="cursor:pointer">送出</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+
+        </div>
+
+
+
+
+
+        <div class="clear"></div>
+
+
+        <footer class="footer">
+            <div class="footer-top">
+
+                <div class="col-md-4">
+                    <select class="position-selector">
+                        <option selected>劉毅英文教育機構台北站前補習班</option>
+                    </select>
+                    <div>
+
+                        <div><i class="fa fa-map-marker fa-fw"></i><a style="text-decoration:none;color:white" href="https://www.google.com.tw/maps/place/100%E5%8F%B0%E5%8C%97%E5%B8%82%E4%B8%AD%E6%AD%A3%E5%8D%80%E8%A8%B1%E6%98%8C%E8%A1%9717-1%E8%99%9F6F/@Html.Raw("@")25.0458258,121.5146382,17z/data=!3m1!4b1!4m5!3m4!1s0x3442a972fed44ab7:0xa86945d9ac2afaba!8m2!3d25.0458258!4d121.5168269" target="_blank">台北市許昌街17號6F</a></div>
+                    </div>
+                    <br />
+                    <div>
+                        <div><i class="fa fa-phone fa-fw"></i><span style="color:white">02-23895212</span></div>
+                    </div>
+                    <br />
+                    <div>
+                        <div><i class="glyphicon glyphicon-hand-right"></i><a style="text-decoration:none;color:white" target="_blank" href="http://line.me/ti/p/%40frg3097b">&nbspLINE</a></div>
+                    </div>
+                    <br />
+                    <div>
+                        <div>
+                            <i class="fa fa-clock-o fa-fw"></i>
+                            <span style="color:white">星期一~五 15:00-21:30</span>
+
+                        </div>
+                        <br />
+                        <div>
+                            <i class="fa  fa-fw"></i>
+                            <span style="color:white">星期六~日 08:30-21:30</span>
+                        </div>
+                    </div>
+                    <br />
+                </div>
+                <div class="col-md-4">
+                    <h3>地圖資訊</h3>
+
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1807.326819310746!2d121.5157326!3d25.0458258!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a900749e0f51%3A0xa08127e49c12b74a!2z5YqJ5q-F6Iux5paH5pWZ6IKy5qmf5qeL!5e0!3m2!1szh-TW!2stw!4v1534060441316" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    <br />
+                </div>
+                <div class="col-md-2">
+                    <h3>連結資訊</h3>
+                    <div class="social-media">
+                        <a href="https://www.facebook.com/LIU-YI-English-School%E5%8A%89%E6%AF%85%E8%8B%B1%E6%96%87%E6%95%99%E8%82%B2%E6%A9%9F%E6%A7%8B-1800170896968255/" target="_blank"><i class="fa fa-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <h3>相關訊息</h3>
+                    <div>
+                        <div><a style="text-decoration:none;color:white" href="~/ChildLesson/Index">兒童部</a></div><br />
+                        <div><a style="text-decoration:none;color:white" href="~/JuniorLesson/Index">國中部</a></div><br />
+                        <div><a style="text-decoration:none;color:white" href="~/HighLesson/Index">高中部</a></div><br />
+                        <div><a style="text-decoration:none;color:white" href="~/AdultLesson/Index">成人部</a></div><br />
+                        <span><a style="text-decoration:none;color:white" href="~/Career/Index">菁英招募</a></span>
+                    </div>
+                </div>
+
+                <div class="clear"></div>
+
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">Copyright © 2018 劉毅英文教育機構</div>
+                <div class="country-switcher">
+                    <span class="country-name">台灣</span>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+        </footer>
+
+        <div class="up-to-top">
+            <i class="fa fa-angle-double-up fa-fw"></i>
+        </div>
+    </div>
+    <script data-align="right" data-overlay="false" id="keyreply-script" src="//keyreply.com/chat/widget.js" data-color="#E4392B" data-apps="JTdCJTIyZW1haWwlMjI6JTIybGVhcm42NjZAc2VlZG5ldC5uZXQudHclMjIlN0Q="></script>
+
+
+
+    <script>
+        $(function () {
+           
+        });
+        function Shomemo(x) {
+            if (x == "其他") {
+                $("#memoform").removeClass("memotest");
+
+            } else {
+                $("#memoform").addClass("memotest");
+            }
+        }
+
+
+
+    </script>
+
+</body>
+</html>
+
+

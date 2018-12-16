@@ -1,0 +1,220 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<StudentWeb.Models.LastNew>
+@{
+    var a = 1;
+}
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+
+<style>
+    .modal-backdrop {
+        background-color: black !important;
+    }
+
+        .modal-backdrop.in {
+            opacity: 0.2 !important
+        }
+</style>
+
+<!--==========================
+  Gallery Section
+============================-->
+<section id="gallery" class="wow fadeInUp">
+
+    <div class="container">
+        <div class="section-header">
+            <h2>最新活動</h2>
+            <p>最新的活動資訊就在這裡</p>
+        </div>
+    </div>
+
+    <div class="owl-carousel gallery-carousel">
+
+        @foreach (var i in ViewBag.Activity)
+        {
+            <a href="@Url.Action("GetImageFile","Liu", new { fileName= i.Image })" class="venobox" data-gall="gallery-carousel"><img class="ActiveImg" src="@Url.Action("GetImageFile","Liu", new { fileName= i.Image })" alt=""></a>
+
+
+        }
+
+    </div>
+
+</section>
+
+<!--==========================
+  F.A.Q Section
+============================-->
+<section id="faq" class="wow fadeInUp section-with-bg ">
+    <div class="container">
+        <div class="section-header">
+            <h2>最新消息</h2>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <ul id="faq-list">
+
+                    @foreach (var h in Model)
+                    {
+
+
+                        <li>
+                            <a data-toggle="collapse" class="collapsed" href="#@h.Id">@h.CreateTime.ToShortDateString() &nbsp &nbsp @h.title<i class="fa fa-minus-circle"></i></a>
+                            <div id="@h.Id" class="collapse" data-parent="#faq-list">
+                               <div >@Html.Raw(h.Description)</div>
+                            </div>
+                        </li>                       
+                    }
+                </ul>
+                @Html.PagedListPager(Model, Page => Url.Action("Index", new { Page }), PagedListRenderOptions.ClassicPlusFirstAndLast)
+
+
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<script>
+    $(function () {
+        $("body").on("click", "#ContactSend", ContactSend);
+        $("body").on("click", "#EDMBtn", EDMBtn);
+    })
+
+    
+    function Shomemo(x) {
+        if (x == "其他") {
+            $("#memoform").removeClass("memotest");
+
+        } else {
+            $("#memoform").addClass("memotest");
+        }
+    }
+
+    function ContactSend() {
+        if ($("#name").val().trim() == "") {
+            alert("請填寫姓名");
+            return false;
+        }
+        if ($("#email").val().trim() != "") {
+            var emailRule = /^\w+((-\w+)|(\.\w+))*\@@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/g;
+            if (emailRule.test($("#email").val()) == false) {
+                alert("信箱格式有誤,請檢查");
+                return false;
+            }
+        }
+
+        if ($("#Phone").val().trim() == "") {
+            if ($("#LocalPhone").val().trim() == "") {
+                alert("電話或手機請選擇一樣填寫");
+                return false;
+            }
+        }
+
+        if ($("#Phone").val().trim() != "") {
+            var Phone = $("#Phone").val().trim();
+            Phone = Phone.replace(/\s+/g, "").length;
+            if (Phone != "10") {
+                alert("手機請填寫10碼,請檢查");
+                return false;
+            }
+        }
+
+        if ($("#LocalPhone").val().trim() != "") {
+            var LocalPhone = $("#LocalPhone").val().trim();
+            LocalPhone = LocalPhone.replace(/\s+/g, "").length;
+            if (LocalPhone < "8") {
+                alert("電話至少8碼,請檢查");
+                return false;
+            }
+        }
+        if ($("#Course").val() == "") {
+            alert("請選擇課程,請檢查");
+            return false;
+        }
+        // 送出事件紀錄
+        //gtag("event", "點擊", {
+        //    "event_category": "預約試聽",
+        //    "event_label": "點擊次數",
+        //    "value": 1
+        //});
+        $.ajax({
+            url: "/Liu/Contact",
+            type: "POST",
+            data: {
+                "Name": $("#name").val(),
+                "SchoolName": $("#SchoolName").val(),
+                "Email": $("#email").val(),
+                "Phone": $("#Phone").val(),
+                "Course": $("#Course").val(),
+                "LocalPhone": $("#LocalPhone").val(),
+                "Memo": $("#Memo").val()
+            },
+            success: function (data) {
+                if (data.Status == "0") {
+                    alert("\n訊息：送出成功，我們會盡快聯繫您！");
+                  
+
+                } else {
+                    var message = data.StatusDesc;
+                    alert("\n訊息：送出成功，我們會盡快聯繫您！");
+                }
+            },
+            error: function (err) {
+                alert("\n訊息：送出成功，我們會盡快聯繫您！");
+            }
+            
+        });
+    }
+
+
+    function EDMBtn() {
+        if ($("#EDM").val().trim() == "")
+        {
+            alert("請填寫信箱");
+            return false;
+        }
+
+        if ($("#EDM").val().trim() != "") {
+            var emailRule = /^\w+((-\w+)|(\.\w+))*\@@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/g;
+            if (emailRule.test($("#EDM").val()) == false) {
+                alert("信箱格式有誤,請檢查");
+                return false;
+            }
+        }
+
+        $.ajax({
+            url: "/Liu/EDM",
+            type: "POST",
+            data: {
+                "EDM": $("#EDM").val(),
+            },
+            success: function (data) {
+                if (data.Status == "0") {
+                    alert("\n訊息：送出成功，感謝您！");
+
+                } else {
+                    var message = data.StatusDesc;
+                    alert("\n訊息：送出成功，感謝您！");
+                }
+            },
+            error: function (err) {
+                alert("\n訊息：送出成功，感謝您！");
+            }
+
+        });
+    }
+
+</script>
+
+
+
+
