@@ -224,6 +224,9 @@
     <Compile Include="Models\LastNew.cs">
       <DependentUpon>StudentModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LessonCalendar.cs">
+      <DependentUpon>StudentModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Partial\elementary_Book.cs" />
     <Compile Include="Models\Partial\Video.cs" />
     <Compile Include="Models\Partial\FreeTrail.cs" />
@@ -3828,7 +3831,6 @@
     <Content Include="Content\assets\global\plugins\icheck\demo\css\montserrat-regular.svg" />
     <Content Include="Content\assets\global\plugins\icheck\demo\css\normalize.css" />
     <Content Include="Content\assets\global\plugins\icheck\demo\index.html" />
-    <Content Include="Content\assets\global\plugins\icheck\demo\js\custom.js" />
     <Content Include="Content\assets\global\plugins\icheck\demo\js\custom.min.js" />
     <Content Include="Content\assets\global\plugins\icheck\demo\js\jquery.js" />
     <Content Include="Content\assets\global\plugins\icheck\demo\js\zepto.js" />
@@ -5849,7 +5851,6 @@
     <Content Include="Content\img\newbook\英文名師必備教本\29_7000字文意選填詳解_教本_湖水藍.jpg" />
     <Content Include="Content\img\newbook\英文名師必備教本\30_如何寫看圖英作文教本-01.jpg" />
     <Content Include="Content\img\newbook\英文名師必備教本\31_7000字篇章結構_教師手冊_平面_小.jpg" />
-    <Content Include="Content\img\roombanner.jpg" />
     <Content Include="Content\img\Senior_001.jpg" />
     <Content Include="Content\img\Senior_002.jpg" />
     <Content Include="Content\js\boostrap3.js" />
@@ -6062,7 +6063,6 @@
     <Content Include="Content\assets\global\plugins\gmaps\README.md" />
     <Content Include="Content\assets\global\plugins\icheck\bower.json" />
     <Content Include="Content\assets\global\plugins\icheck\CHANGELOG.md" />
-    <Content Include="Content\assets\global\plugins\icheck\demo\css\custom.styl" />
     <Content Include="Content\assets\global\plugins\icheck\demo\css\montserrat-bold.eot" />
     <Content Include="Content\assets\global\plugins\icheck\demo\css\montserrat-bold.ttf" />
     <Content Include="Content\assets\global\plugins\icheck\demo\css\montserrat-bold.woff" />
@@ -6266,6 +6266,8 @@
     <Content Include="lib\font-awesome\fonts\fontawesome-webfont.woff2" />
     <Content Include="lib\font-awesome\fonts\FontAwesome.otf" />
     <Content Include="lib\owlcarousel\LICENSE" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\CustomProfile1.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\easyResponsiveTabs.js" />

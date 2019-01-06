@@ -70,6 +70,8 @@ public partial class StudentEntities : DbContext
 
     public virtual DbSet<StudentImpression> StudentImpressions { get; set; }
 
+    public virtual DbSet<LessonCalendar> LessonCalendars { get; set; }
+
 }
 
 }

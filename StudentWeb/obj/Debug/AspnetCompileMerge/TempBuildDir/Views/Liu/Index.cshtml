@@ -1,0 +1,381 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<StudentWeb.Models.LastNew>
+@{
+    var a = 1;
+}
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+
+<style>
+    .modal-backdrop {
+        background-color: black !important;
+    }
+
+        .modal-backdrop.in {
+            opacity: 0.2 !important
+        }
+
+
+</style>
+
+<!--==========================
+  Gallery Section
+============================-->
+<section id="gallery" class="wow fadeInUp">
+
+    <div class="container">
+        <div class="section-header">
+            <h2>最新活動</h2>
+            <p>最新的活動資訊就在這裡</p>
+        </div>
+    </div>
+
+    <div class="owl-carousel gallery-carousel">
+
+        @foreach (var i in ViewBag.Activity)
+        {
+            <a href="@Url.Action("GetImageFile","Liu", new { fileName= i.Image })" class="venobox" data-gall="gallery-carousel"><img class="ActiveImg" src="@Url.Action("GetImageFile","Liu", new { fileName= i.Image })" alt=""></a>
+
+
+        }
+
+    </div>
+
+</section>
+
+<!--==========================
+  F.A.Q Section
+============================-->
+<section id="faq" class="wow fadeInUp section-with-bg ">
+    <div class="container">
+        <div class="section-header">
+            <h2>最新消息</h2>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <ul id="faq-list">
+
+                    @foreach (var h in Model)
+                    {
+
+
+                        <li>
+                            <a data-toggle="collapse" class="collapsed" href="#@h.Id">@h.CreateTime.ToShortDateString() &nbsp &nbsp @h.title<i class="fa fa-minus-circle"></i></a>
+                            <div id="@h.Id" class="collapse" data-parent="#faq-list">
+                                <div>@Html.Raw(h.Description)</div>
+                            </div>
+                        </li>
+                    }
+                </ul>
+                @Html.PagedListPager(Model, Page => Url.Action("Index", new { Page }), PagedListRenderOptions.ClassicPlusFirstAndLast)
+
+
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!--==========================
+      課程表
+     ============================-->
+<section id="venue" style="padding: 60px 0;" class="wow fadeInUp">
+    <div class="container-fluid">
+        <div class="section-header">
+            <h2>課程表</h2>
+            @*<p>
+                本補習班位於壽德大樓，座落於台北捷運車站８號出口正對面，也有多輛的公車站牌，便利的交通及優美的上課環境。
+            </p>*@
+        </div>
+  
+    </div>
+    <div class="container-fluid venue-gallery-container" >
+        <div class="table-responsive">
+            <table class="table table-bordered " style="border:1px solid lightgray !important;">
+                <thead>
+                    <tr style="background-color:lightgray;color:black;font-family:sans-serif;font-weight:700;text-align:center;vertical-align:middle;">
+                        <th style="border:1px solid  lightgray!important;width:250px;"></th>
+                        <th style="border:1px solid lightgray !important;width:250px; ">星期日</th>
+                        <th style="border:1px solid lightgray !important;width:250px; ">星期一</th>
+                        <th style="border:1px solid lightgray !important;width:250px; ">星期二</th>
+                        <th style="border:1px solid lightgray !important;width:250px; ">星期三</th>
+                        <th style="border:1px solid lightgray !important;width:250px; ">星期四</th>
+                        <th style="border:1px solid lightgray !important;width:250px; ">星期五</th>
+                        <th style="border:1px solid lightgray !important;width:250px; ">星期六</th>
+                    </tr>
+                </thead>
+                <tbody style="background-color:white;color:black;font-family:sans-serif;font-weight:700;text-align:center;vertical-align:middle">
+                    @for (var i = 0; i < 3; i++)
+                    {
+
+                        if (i == 0)
+                        {
+                            <tr>
+                                @for (var x = 0; x < 8; x++)
+                                {
+                                    if (x == 0)
+                                    {
+                                        <td style="border:1px solid lightgray !important;vertical-align:middle;background-color:whitesmoke ">上午</td>
+                                    }
+                                    else
+                                    {
+                                        <td style="border:1px solid lightgray !important; ">
+                                            @foreach (var data in ViewBag.Data)
+                                            {
+                                                if (data.Schedule == "m_" + x)
+                                                {
+                                                    if (data.Department == "兒美-")
+                                                    {
+                                                        <div style="background-color:#FFF275 !important;margin-bottom:1px;width:250px;"><a href="@data.Link" target="_blank" style="color:black !important;">@data.Department@data.Title</a></div>
+                                                    }
+                                                    else if (data.Department == "國中-")
+                                                    {
+                                                        <div style="background-color:#FF8C42 !important;margin-bottom:1px;width:250px;"><a href="@data.Link" target="_blank" style="color:black !important;">@data.Department@data.Title</a></div>
+                                                    }
+                                                    else if (data.Department == "高中-")
+                                                    {
+                                                        <div style="background-color:#6699CC !important;margin-bottom:1px;width:250px;"><a href="@data.Link" target="_blank" style="color:black !important;">@data.Department@data.Title</a></div>
+                                                    }
+                                                    else if (data.Department == "成人-")
+                                                    {
+                                                        <div style="background-color:#FF3C38 !important;margin-bottom:1px;width:250px;"><a href="@data.Link" target="_blank" style="color:black !important;">@data.Department@data.Title</a></div>
+                                                    }
+
+                                                }
+
+                                            }
+                                        </td>
+                                    }
+                                }
+                            </tr>
+                        }
+                        else if (i == 1)
+                        {
+                            <tr>
+                                @for (var x = 0; x < 8; x++)
+                                {
+                                    if (x == 0)
+                                    {
+                                        <td style="border:1px solid lightgray !important;vertical-align:middle;background-color:lavenderblush ">下午</td>
+                                    }
+                                    else
+                                    {
+                                        <td style="border:1px solid lightgray !important; ">
+                                            @foreach (var data in ViewBag.Data)
+                                            {
+                                                if (data.Schedule == "a_" + x)
+                                                {
+                                                    if (data.Department == "兒美-")
+                                                    {
+                                                        <div style="background-color:#FFF275 !important;margin-bottom:1px;width:250px;"><a href="@data.Link" target="_blank" style="color:black !important;">@data.Department@data.Title</a></div>
+                                                    }
+                                                    else if (data.Department == "國中-")
+                                                    {
+                                                        <div style="background-color:#FF8C42 !important;margin-bottom:1px;width:250px;"><a href="@data.Link" target="_blank" style="color:black !important;">@data.Department@data.Title</a></div>
+                                                    }
+                                                    else if (data.Department == "高中-")
+                                                    {
+                                                        <div style="background-color:#6699CC !important;margin-bottom:1px;width:250px;"><a href="@data.Link" target="_blank" style="color:black !important;">@data.Department@data.Title</a></div>
+                                                    }
+                                                    else if (data.Department == "成人-")
+                                                    {
+                                                        <div style="background-color:#FF3C38 !important;margin-bottom:1px;width:250px;"><a href="@data.Link" target="_blank" style="color:black !important;">@data.Department@data.Title</a></div>
+                                                    }
+                                                }
+
+                                            }
+                                        </td>
+                                    }
+                                }
+                            </tr>
+                        }
+                        else
+                        {
+                            <tr>
+                                @for (var x = 0; x < 8; x++)
+                                {
+                                    if (x == 0)
+                                    {
+                                        <td style="border:1px solid lightgray !important;vertical-align:middle;background-color:lightblue ">晚上</td>
+                                    }
+                                    else
+                                    {
+                                        <td style="border:1px solid lightgray !important; ">
+                                            @foreach (var data in ViewBag.Data)
+                                            {
+                                                if (data.Schedule == "e_" + x)
+                                                {
+                                                    if (data.Department == "兒美-")
+                                                    {
+                                                        <div style="background-color:#FFF275 !important;margin-bottom:1px;width:250px;"><a href="@data.Link" target="_blank" style="color:black !important;">@data.Department@data.Title</a></div>
+                                                    }
+                                                    else if (data.Department == "國中-")
+                                                    {
+                                                        <div style="background-color:#FF8C42 !important;margin-bottom:1px;width:250px;"><a href="@data.Link" target="_blank" style="color:black !important;">@data.Department@data.Title</a></div>
+                                                    }
+                                                    else if (data.Department == "高中-")
+                                                    {
+                                                        <div style="background-color:#6699CC !important;margin-bottom:1px;width:250px;"><a href="@data.Link" target="_blank" style="color:black !important;">@data.Department@data.Title</a></div>
+                                                    }
+                                                    else if (data.Department == "成人-")
+                                                    {
+                                                        <div style="background-color:#FF3C38 !important;margin-bottom:1px;width:250px;"><a href="@data.Link" target="_blank" style="color:black !important;">@data.Department@data.Title</a></div>
+                                                    }
+                                                }
+
+                                            }
+                                        </td>
+                                    }
+                                }
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<script>
+    $(function () {
+        $("body").on("click", "#ContactSend", ContactSend);
+        $("body").on("click", "#EDMBtn", EDMBtn);
+    })
+
+
+    function Shomemo(x) {
+        if (x == "其他") {
+            $("#memoform").removeClass("memotest");
+
+        } else {
+            $("#memoform").addClass("memotest");
+        }
+    }
+
+    function ContactSend() {
+        if ($("#name").val().trim() == "") {
+            alert("請填寫姓名");
+            return false;
+        }
+        if ($("#email").val().trim() != "") {
+            var emailRule = /^\w+((-\w+)|(\.\w+))*\@@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/g;
+            if (emailRule.test($("#email").val()) == false) {
+                alert("信箱格式有誤,請檢查");
+                return false;
+            }
+        }
+
+        if ($("#Phone").val().trim() == "") {
+            if ($("#LocalPhone").val().trim() == "") {
+                alert("電話或手機請選擇一樣填寫");
+                return false;
+            }
+        }
+
+        if ($("#Phone").val().trim() != "") {
+            var Phone = $("#Phone").val().trim();
+            Phone = Phone.replace(/\s+/g, "").length;
+            if (Phone != "10") {
+                alert("手機請填寫10碼,請檢查");
+                return false;
+            }
+        }
+
+        if ($("#LocalPhone").val().trim() != "") {
+            var LocalPhone = $("#LocalPhone").val().trim();
+            LocalPhone = LocalPhone.replace(/\s+/g, "").length;
+            if (LocalPhone < "8") {
+                alert("電話至少8碼,請檢查");
+                return false;
+            }
+        }
+        if ($("#Course").val() == "") {
+            alert("請選擇課程,請檢查");
+            return false;
+        }
+        // 送出事件紀錄
+        //gtag("event", "點擊", {
+        //    "event_category": "預約試聽",
+        //    "event_label": "點擊次數",
+        //    "value": 1
+        //});
+        $.ajax({
+            url: "/Liu/Contact",
+            type: "POST",
+            data: {
+                "Name": $("#name").val(),
+                "SchoolName": $("#SchoolName").val(),
+                "Email": $("#email").val(),
+                "Phone": $("#Phone").val(),
+                "Course": $("#Course").val(),
+                "LocalPhone": $("#LocalPhone").val(),
+                "Memo": $("#Memo").val()
+            },
+            success: function (data) {
+                if (data.Status == "0") {
+                    alert("\n訊息：送出成功，我們會盡快聯繫您！");
+
+
+                } else {
+                    var message = data.StatusDesc;
+                    alert("\n訊息：送出成功，我們會盡快聯繫您！");
+                }
+            },
+            error: function (err) {
+                alert("\n訊息：送出成功，我們會盡快聯繫您！");
+            }
+
+        });
+    }
+
+
+    function EDMBtn() {
+        if ($("#EDM").val().trim() == "") {
+            alert("請填寫信箱");
+            return false;
+        }
+
+        if ($("#EDM").val().trim() != "") {
+            var emailRule = /^\w+((-\w+)|(\.\w+))*\@@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/g;
+            if (emailRule.test($("#EDM").val()) == false) {
+                alert("信箱格式有誤,請檢查");
+                return false;
+            }
+        }
+
+        $.ajax({
+            url: "/Liu/EDM",
+            type: "POST",
+            data: {
+                "EDM": $("#EDM").val(),
+            },
+            success: function (data) {
+                if (data.Status == "0") {
+                    alert("\n訊息：送出成功，感謝您！");
+
+                } else {
+                    var message = data.StatusDesc;
+                    alert("\n訊息：送出成功，感謝您！");
+                }
+            },
+            error: function (err) {
+                alert("\n訊息：送出成功，感謝您！");
+            }
+
+        });
+    }
+
+</script>
+
+
+
+

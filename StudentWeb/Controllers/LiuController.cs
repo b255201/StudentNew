@@ -16,9 +16,13 @@ namespace StudentWeb.Controllers
         StudentEntities db = new StudentEntities();
         private Repository<Activity_Message> Activity_Message = new Repository<Activity_Message>();
         private Repository<StudentWeb.Models.LastNew> LastNew = new Repository<StudentWeb.Models.LastNew>();
+        private Repository<LessonCalendar> LessonCalendar = new Repository<LessonCalendar>();
         // GET: Liu
         public ActionResult Index(int? page)
         {
+            //課程表
+            var Schedule = LessonCalendar.GetAll().OrderByDescending(c => c.Id);
+            ViewBag.Data = Schedule.ToList();
             //活動消息
             var q = Activity_Message.GetAll().OrderByDescending(c=>c.Id);
             ViewBag.Activity = q.ToList();
