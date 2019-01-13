@@ -22,8 +22,8 @@ namespace StudentWeb.Controllers
         public ActionResult GetImageScholarShip(string fileName)
         {
          
-              return File("C:/後台/StudentBack/StudentBack/Image/ScholarShip/"+fileName, "image/jpg");
-           // return File("C:/back/Image/ScholarShip/" + fileName, "image/png");
+              //return File("C:/後台/StudentBack/StudentBack/Image/ScholarShip/"+fileName, "image/jpg");
+           return File("C:/back/Image/ScholarShip/" + fileName, "image/png");
         }
     }
 }
