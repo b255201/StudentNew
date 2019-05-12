@@ -72,6 +72,8 @@ public partial class StudentEntities : DbContext
 
     public virtual DbSet<LessonCalendar> LessonCalendars { get; set; }
 
+    public virtual DbSet<LessonOpt> LessonOpts { get; set; }
+
 }
 
 }

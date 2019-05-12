@@ -143,8 +143,15 @@
                     <div class="col-lg-6">
                         <h2>創辦人 劉毅老師</h2>
                         <p>
-                            劉毅英文教育機構成立40年，致力於教育事業，並投注大量人力物力在英文教育上。
-                            最具實力的英文家教班，而且口碑第一的劉毅品牌，奠定我們在補教界深厚的根基。
+                            在一級戰區的台北車站裡，只有<span style="color:red">劉毅英文</span>在此屹立不搖近五十年。
+                            <br />
+                            學生在學習的路上，從兒童美語、國中英文、高中英文，以及人生階段最重要的
+                            <span style="color:red">學測指考</span>
+                            ，劉毅英文呵護著每位學生成長茁壯，不僅讓家長倍感安心更讓學生們擁有追求屬於自己夢想的勇氣。
+                            <br />
+                            來<span style="color:red">劉毅英文</span>，
+                            你不在是單打獨鬥，所有老師，同學都會陪伴著你讓你
+                            成為下一個考蹟。
                         </p>
                     </div>
                     <div class="col-lg-3">
@@ -239,6 +246,10 @@
           Contact Section
         ============================-->
         <section id="contact" class="section-bg wow fadeInUp">
+            @*@{
+                Html.RenderPartial("~/Views/Dialog/LessonOptPartial.cshtml");
+
+            }*@
             <div class="container">
                 <div class="section-header">
                     <h2>預約試聽</h2>
@@ -268,7 +279,7 @@
                     </div>
                 </div>
                 <div class="form">
-                    <form method="post" class="contactForm" id="ContactForm">
+                    <form  class="contactForm" id="ContactForm">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <input type="text" name="Name" class="form-control" id="name" placeholder="姓名" />
@@ -290,19 +301,19 @@
                         </div>
                         <div class="form-group">
                             <select style="width:100%" id="Course" name="Course" onchange="Shomemo(this.value)">
-                                <option selected value="">請選擇課程</option>
+                                @*<option selected value="">請選擇課程</option>
                                 <option value="小六升國七精熟銜接班">小六升國七精熟銜接班</option>
                                 <option value="國七升國八超前進度班">國七升國八超前進度班</option>
                                 <option value="會考保證班">會考保證班</option>
-                                <option value="高一英文課程">高一英文課程</option>
-                                <option value="高一數學課程">高一數學課程</option>
-                                <option value="高二三英文課程">高二三英文課程</option>
-                                <option value="高二數學課程">高二數學課程</option>
-                                <option value="學測保證班">學測保證班</option>
+                                <option value="高中英文課程">高中英文課程</option>
+                                <option value="高中數學課程">高中數學課程</option>                         
+                                <option value="指考英文數學課程">指考英文/數學課程</option>
+                                <option value="學測全科總複習班保證班">學測全科總複習班/保證班</option>
                                 <option value="TOEIC新制多益課程">TOEIC新制多益課程</option>
                                 <option value="GEPT全民英檢中級複試班">GEPT全民英檢中級複試班</option>
-                                <option value="高效英文會話">高效英文會話</option>
+                                <option value="全程外語主題課程">全程外語主題課程</option>
                                 <option value="其他">其他</option>
+                                *@
                             </select>
                         </div>
                         <div class="form-group">
@@ -377,6 +388,39 @@
     </footer><!-- #footer -->
     <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
 </body>
+<script>
+    $(function () {
+        opt();
+    })
 
+    function opt()
+    {
+         $.ajax({
+                   "url": '@Url.Action("Search", "Dialog")',
+                   async: false,
+                   type: "POST",             
+                    success: function (data) {
+                        if (data.Status == "0")
+                        {
+                            $('#Course').empty();
+                            $('#Course').append('<option selected value="">請選擇課程</option>');
+                            for (var i = 0;i< data.StatusDesc.length - 1; i++)
+                            {
+                                $('#Course').append('<option value="' + data.StatusDesc[i].Description + '">' + data.StatusDesc[i].Description + '</option>');
+                            }
+                            $('#Course').append('<option value="其他">其他</option>');
+                       
+                        } else {
+                            var message = data.StatusDesc;
+                            alert(message);
+                        }
+                    },
+                    error: function (err) {
+                        alert(err.Status);
+                    }
+                });
+    }
+
+</script>
 </html>
 

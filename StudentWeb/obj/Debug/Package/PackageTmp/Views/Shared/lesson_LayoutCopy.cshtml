@@ -5,10 +5,18 @@
     <!-- Favicons -->
     <link href="~/Content/img/logo_LE.jpg" rel="icon">
     <link href="~/Content/img/logo_LE.jpg" rel="apple-touch-icon">
-    <title>劉毅英文</title>
+    @*<title>劉毅英文</title>*@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="8X0p4eGFT-vRR2KR76dcA8KN0T6wYHccBjS0pNpc3Pw" />
+    @if (@ViewBag.Title == null)
+    {
+        <title>劉毅英文</title>
+    }
+    else
+    {
+        <title>@ViewBag.Title</title>
+    }
     <meta property="og:title" content="劉毅英文補習班" />
     <meta name="keywords" content="劉毅補習班,國中保證班,高中保證班,升大學補習班,升高中補習班,落點分析,學測班,全科班,衝刺班,劉毅英文補習班,英文補習班,國中英文班,國中全科班,高中英文班,高中全科班,成人美語班,兒童美語班,指考複習班,TOEIC多益" />
     <!-- Google Fonts -->
@@ -182,7 +190,7 @@
                             </div>
                         </div>
                         <div class="form">
-                            <form method="post" class="contactForm" id="ContactForm">
+                            <form  class="contactForm" id="ContactForm">
                                 <div class="form-row">
                                     <div class="form-group col-md-6" style="padding-left:0px !important">
                                         <input type="text" name="Name" class="form-control" id="name" placeholder="姓名" />
@@ -204,25 +212,24 @@
                                 </div>
                                 <div class="form-group" style="padding-right:15px !important">
                                     <select style="width:100%" id="Course" name="Course" onchange="Shomemo(this.value)">
-                                        <option selected value="">請選擇課程</option>
+                                        @*<option selected value="">請選擇課程</option>
                                         <option value="小六升國七精熟銜接班">小六升國七精熟銜接班</option>
                                         <option value="國七升國八超前進度班">國七升國八超前進度班</option>
                                         <option value="會考保證班">會考保證班</option>
-                                        <option value="高一英文課程">高一英文課程</option>
-                                        <option value="高一數學課程">高一數學課程</option>
-                                        <option value="高二三英文課程">高二三英文課程</option>
-                                        <option value="高二數學課程">高二數學課程</option>
-                                        <option value="學測保證班">學測保證班</option>
+                                        <option value="高中英文課程">高中英文課程</option>
+                                        <option value="高中數學課程">高中數學課程</option>
+                                        <option value="指考英文數學課程">指考英文/數學課程</option>
+                                        <option value="學測全科總複習班保證班">學測全科總複習班/保證班</option>
                                         <option value="TOEIC新制多益課程">TOEIC新制多益課程</option>
                                         <option value="GEPT全民英檢中級複試班">GEPT全民英檢中級複試班</option>
-                                        <option value="高效英文會話">高效英文會話</option>
-                                        <option value="其他">其他</option>
+                                        <option value="全程外語主題課程">全程外語主題課程</option>
+                                        <option value="其他">其他</option>*@
                                     </select>
                                 </div>
                                 <div class="form-group" style="padding-right:15px !important">
                                     <textarea class="form-control" name="Memo" id="Memo" rows="5" data-msg="Please write something for us" placeholder="Message(非必填)"></textarea>
                                 </div>
-                                <div class="text-center"><button class="ContactBtn" type="submit" id="ContactSend">送出</button></div>
+                                <div class="text-center"><button class="ContactBtn" type="button" id="ContactSend">送出</button></div>
                             </form>
                         </div>
                     </div>
@@ -294,9 +301,37 @@
 <script>
     $(function () {
         $("body").on("click", "#ContactSend", ContactSend);
-     
+        opt();
     })
 
+
+      function opt()
+    {
+         $.ajax({
+                   "url": '@Url.Action("Search", "Dialog")',
+                   async: false,
+                   type: "POST",             
+                    success: function (data) {
+                        if (data.Status == "0")
+                        {
+                            $('#Course').empty();
+                            $('#Course').append('<option selected value="">請選擇課程</option>');
+                            for (var i = 0;i< data.StatusDesc.length - 1; i++)
+                            {
+                                $('#Course').append('<option value="' + data.StatusDesc[i].Description + '">' + data.StatusDesc[i].Description + '</option>');
+                            }
+                            $('#Course').append('<option value="其他">其他</option>');
+                       
+                        } else {
+                            var message = data.StatusDesc;
+                            alert(message);
+                        }
+                    },
+                    error: function (err) {
+                        alert(err.Status);
+                    }
+                });
+    }
 
     function Shomemo(x) {
         if (x == "其他") {

@@ -227,6 +227,9 @@
     <Compile Include="Models\LessonCalendar.cs">
       <DependentUpon>StudentModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LessonOpt.cs">
+      <DependentUpon>StudentModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Partial\elementary_Book.cs" />
     <Compile Include="Models\Partial\Video.cs" />
     <Compile Include="Models\Partial\FreeTrail.cs" />
@@ -5890,6 +5893,7 @@
     <Content Include="lib\owlcarousel\owl.carousel.js" />
     <Content Include="lib\owlcarousel\owl.carousel.min.js" />
     <Content Include="lib\style.css" />
+    <Content Include="lib\styleJunior.css" />
     <Content Include="lib\superfish\hoverIntent.js" />
     <Content Include="lib\superfish\superfish.js" />
     <Content Include="lib\superfish\superfish.min.js" />
@@ -6350,6 +6354,7 @@
     <Content Include="Views\Liu\OldIndex.cshtml" />
     <Content Include="Views\Impression\Index.cshtml" />
     <Content Include="Views\Shared\lesson_LayoutCopy.cshtml" />
+    <Content Include="Views\Dialog\LessonOptPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

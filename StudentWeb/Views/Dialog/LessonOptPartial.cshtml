@@ -1,0 +1,33 @@
+﻿assccc
+
+
+
+
+@section Scripts
+{
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script>
+        $(function ()
+        {
+            alert("aaa");
+               $.ajax({
+                   "url": '@Url.Action("Search")',
+                   async: false,
+                   type: "POST",             
+                    success: function (data) {
+                        if (data.Status == "0")
+                        {
+                            alert('' + data.StatusDesc);
+                       
+                        } else {
+                            var message = data.StatusDesc;
+                            alert(message);
+                        }
+                    },
+                    error: function (err) {
+                        alert(err.Status);
+                    }
+                });
+        })
+    </script>
+}

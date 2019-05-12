@@ -22,10 +22,10 @@
       <publishTime>12/01/2018 04:08:58</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>01/12/2019 14:47:54</publishTime>
+      <publishTime>02/10/2019 14:21:28</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>01/12/2019 14:47:54</publishTime>
+      <publishTime>02/10/2019 14:21:28</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>10/23/2017 13:15:18</publishTime>
@@ -217,10 +217,10 @@
       <publishTime>12/13/2017 22:09:38</publishTime>
     </File>
     <File Include="bin/StudentWeb.dll">
-      <publishTime>01/12/2019 14:45:52</publishTime>
+      <publishTime>02/09/2019 19:28:29</publishTime>
     </File>
     <File Include="bin/StudentWeb.pdb">
-      <publishTime>01/12/2019 14:45:52</publishTime>
+      <publishTime>02/09/2019 19:28:29</publishTime>
     </File>
     <File Include="bin/System.Diagnostics.DiagnosticSource.dll">
       <publishTime>07/19/2017 10:01:30</publishTime>
@@ -18259,10 +18259,10 @@
       <publishTime>12/01/2018 04:08:58</publishTime>
     </File>
     <File Include="Models/StudentModel.edmx.diagram">
-      <publishTime>01/05/2019 20:36:49</publishTime>
+      <publishTime>02/09/2019 17:06:56</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>01/12/2019 14:47:39</publishTime>
+      <publishTime>02/10/2019 14:21:15</publishTime>
     </File>
     <File Include="Scripts/bootstrap-dialog.js">
       <publishTime>12/01/2018 04:08:58</publishTime>
@@ -18331,10 +18331,10 @@
       <publishTime>12/01/2018 04:08:58</publishTime>
     </File>
     <File Include="Views/AdultLesson/Detail.cshtml">
-      <publishTime>12/15/2018 14:15:51</publishTime>
+      <publishTime>02/10/2019 13:40:56</publishTime>
     </File>
     <File Include="Views/AdultLesson/Index.cshtml">
-      <publishTime>12/08/2018 19:59:15</publishTime>
+      <publishTime>02/10/2019 13:40:52</publishTime>
     </File>
     <File Include="Views/Book/elementary_school.cshtml">
       <publishTime>12/30/2018 14:26:21</publishTime>
@@ -18358,19 +18358,22 @@
       <publishTime>12/01/2018 04:08:58</publishTime>
     </File>
     <File Include="Views/ChildLesson/Detail.cshtml">
-      <publishTime>12/15/2018 14:23:01</publishTime>
+      <publishTime>02/10/2019 13:38:31</publishTime>
     </File>
     <File Include="Views/ChildLesson/Index.cshtml">
-      <publishTime>12/08/2018 19:59:18</publishTime>
+      <publishTime>02/10/2019 13:35:09</publishTime>
     </File>
     <File Include="Views/Dialog/LastNewDialogPartial.cshtml">
       <publishTime>12/01/2018 04:08:58</publishTime>
     </File>
+    <File Include="Views/Dialog/LessonOptPartial.cshtml">
+      <publishTime>02/09/2019 19:29:26</publishTime>
+    </File>
     <File Include="Views/HighLesson/Detail.cshtml">
-      <publishTime>12/15/2018 14:22:34</publishTime>
+      <publishTime>02/10/2019 13:39:57</publishTime>
     </File>
     <File Include="Views/HighLesson/Index.cshtml">
-      <publishTime>12/08/2018 19:59:25</publishTime>
+      <publishTime>02/10/2019 13:39:53</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>12/01/2018 04:08:58</publishTime>
@@ -18385,16 +18388,16 @@
       <publishTime>12/09/2018 14:25:59</publishTime>
     </File>
     <File Include="Views/JuniorLesson/Detail.cshtml">
-      <publishTime>12/15/2018 14:22:18</publishTime>
+      <publishTime>02/10/2019 13:40:31</publishTime>
     </File>
     <File Include="Views/JuniorLesson/Index.cshtml">
-      <publishTime>12/08/2018 19:59:22</publishTime>
+      <publishTime>02/10/2019 13:40:25</publishTime>
     </File>
     <File Include="Views/JuniorLesson/juniorone.cshtml">
       <publishTime>12/01/2018 04:08:58</publishTime>
     </File>
     <File Include="Views/Liu/Index.cshtml">
-      <publishTime>01/06/2019 16:34:37</publishTime>
+      <publishTime>01/26/2019 18:03:13</publishTime>
     </File>
     <File Include="Views/Liu/OldIndex.cshtml">
       <publishTime>12/01/2018 04:08:58</publishTime>
@@ -18415,16 +18418,16 @@
       <publishTime>12/01/2018 04:08:58</publishTime>
     </File>
     <File Include="Views/Shared/lesson_Layout.cshtml">
-      <publishTime>12/30/2018 18:32:02</publishTime>
+      <publishTime>01/28/2019 00:05:15</publishTime>
     </File>
     <File Include="Views/Shared/lesson_LayoutCopy.cshtml">
-      <publishTime>12/30/2018 18:32:13</publishTime>
+      <publishTime>02/10/2019 13:41:02</publishTime>
     </File>
     <File Include="Views/Shared/test_Layout.cshtml">
       <publishTime>12/01/2018 04:08:58</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>01/05/2019 15:13:48</publishTime>
+      <publishTime>02/10/2019 13:54:32</publishTime>
     </File>
     <File Include="Views/Video/Lesson.cshtml">
       <publishTime>12/09/2018 18:02:00</publishTime>

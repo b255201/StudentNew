@@ -11,6 +11,7 @@ namespace StudentWeb.Controllers
     public class DialogController : Controller
     {
         private Repository<StudentWeb.Models.LastNew> LastNew = new Repository<StudentWeb.Models.LastNew>();
+        private Repository<StudentWeb.Models.LessonOpt> LessonRepo = new Repository<StudentWeb.Models.LessonOpt>();
         // GET: Dialog
         public ActionResult Index()
         {
@@ -27,5 +28,24 @@ namespace StudentWeb.Controllers
             return PartialView("LastNewDialogPartial",q);
         }
         #endregion
+
+        #region lessonOpt, 課程表選擇器
+        /// <summary>
+        ///  課程表選擇器
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult LessonOpt()
+        {
+            var q = LessonRepo.GetAll().OrderBy(i => i.Seq).ToList();
+            ViewBag.Opt = q;
+            return PartialView("LessonOptPartial");
+        }
+        #endregion
+        public ActionResult Search()
+        {
+            var q = LessonRepo.GetAll().OrderBy(i => i.Seq).ToList();
+  
+            return Json(new { Status = "0", StatusDesc = q });
+        }
     }
 }

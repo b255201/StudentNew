@@ -1,4 +1,6 @@
-﻿using System;
+﻿using StudentWeb.Models;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,12 +12,14 @@ namespace StudentWeb
 {
     public class MvcApplication : System.Web.HttpApplication
     {
+     
+
         protected void Application_Start()
-        {
+        {  
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);       
         }
     }
 }

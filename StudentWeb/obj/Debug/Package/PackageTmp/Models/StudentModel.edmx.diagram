@@ -28,6 +28,7 @@
         <EntityTypeShape EntityType="StudentModel.EDM" Width="1.5" PointX="11.375" PointY="3.75" />
         <EntityTypeShape EntityType="StudentModel.StudentImpression" Width="1.5" PointX="9.375" PointY="11.75" />
         <EntityTypeShape EntityType="StudentModel.LessonCalendar" Width="1.5" PointX="11.375" PointY="11.75" />
+        <EntityTypeShape EntityType="StudentModel.LessonOpt" Width="1.5" PointX="12.375" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

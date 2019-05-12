@@ -1,59 +1,58 @@
 ﻿@using PagedList;
 @using PagedList.Mvc;
 @model IPagedList<StudentWeb.Models.ChildClass>
-
 @{
-    /**/
+    ViewBag.Title = "劉毅英文-兒童美語";
     Layout = "~/Views/Shared/lesson_LayoutCopy.cshtml";
 }
+<meta property="og:title" content="ViewBag.Title" />
 <link href="~/Content/css/templatemo-style.css?20180901" rel="stylesheet" />
 <link href="~/Content/css/bootstrap.css?20180901" rel="stylesheet" />
-
 <section id="venue" class="wow fadeInUp">
-            <div class="fh5co-cards">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col col-md-4">
-                            <ul class="nav nav-tabs nav-stacked text-center" role="tablist">
-                                <li role="presentation" class="active keepZ"><a href="#EightClass" onclick="ChangeCourse('七年級課程')" aria-controls="EightClass" role="tab" data-toggle="tab">七年級課程</a></li>
-                                <li role="presentation" class="keepZ"><a href="#EightClass" onclick="ChangeCourse('一口氣英文')" aria-controls="EightClass" role="tab" data-toggle="tab">一口氣英文課程</a></li>
-                                <li role="presentation" class="keepZ"><a href="#EightClass" onclick="ChangeCourse('作文班')" aria-controls="EightClass" role="tab" data-toggle="tab">作文班</a></li>
-                            </ul>
-                        </div>
-                        <div class="col col-sm-8">
-                            <div class="row tab-content">
-                                <div role="tabpanel" style="opacity:1" class="tab-pane fade active in">
-                                    <div class="" id="TabContent">
-                                        @*@foreach (var i in Model)
-                                        {
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <div class="pri_table_list active">
-                                        <h4>aa </h4>
-                                        <button>詳細資訊</button>
-                                        </div>
-                                        </div>
-
-                                        }*@
+    <div class="fh5co-cards">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col col-md-4">
+                    <ul class="nav nav-tabs nav-stacked text-center" role="tablist">
+                        <li role="presentation" class="active keepZ"><a href="#EightClass" onclick="ChangeCourse('七年級課程')" aria-controls="EightClass" role="tab" data-toggle="tab">七年級課程</a></li>
+                        <li role="presentation" class="keepZ"><a href="#EightClass" onclick="ChangeCourse('一口氣英文')" aria-controls="EightClass" role="tab" data-toggle="tab">一口氣英文課程</a></li>
+                        <li role="presentation" class="keepZ"><a href="#EightClass" onclick="ChangeCourse('作文班')" aria-controls="EightClass" role="tab" data-toggle="tab">作文班</a></li>
+                    </ul>
+                </div>
+                <div class="col col-sm-8">
+                    <div class="row tab-content">
+                        <div role="tabpanel" style="opacity:1" class="tab-pane fade active in">
+                            <div class="" id="TabContent">
+                                @*@foreach (var i in Model)
+                                    {
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="pri_table_list active">
+                                    <h4>aa </h4>
+                                    <button>詳細資訊</button>
                                     </div>
-                                </div>
+                                    </div>
+
+                                    }*@
                             </div>
                         </div>
                     </div>
-                    @*<div class="row">
-                        <ul class="list-inline pull-right">
-                            <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
-                            <li><button type="button" class="btn btn-default next-step">Next</button></li>
-                            <li><button type="button" class="btn btn-primary ">Save</button></li>
-                        </ul>
-                    </div>*@
                 </div>
             </div>
-    </section>
-            <script src="https://code.jquery.com/jquery-1.12.4.min.js"
-                    integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
-                    crossorigin="anonymous"></script>
+            @*<div class="row">
+                    <ul class="list-inline pull-right">
+                        <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                        <li><button type="button" class="btn btn-default next-step">Next</button></li>
+                        <li><button type="button" class="btn btn-primary ">Save</button></li>
+                    </ul>
+                </div>*@
+        </div>
+    </div>
+</section>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+        crossorigin="anonymous"></script>
 
-            <script>
+<script>
 
     $(function () {
         $(".tit").text("兒童課程");
@@ -157,4 +156,4 @@
             }
         });
     }
-            </script>
+</script>
